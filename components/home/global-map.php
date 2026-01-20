@@ -73,6 +73,7 @@ $countries_json = file_get_contents(__DIR__ . '/../../assets/data/countries.json
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.9/datamaps.world.min.js"></script>
+<link rel="stylesheet" href="components/home/map-styles.css">
 
 <style>
     #global-footprint .custom-scrollbar::-webkit-scrollbar {
@@ -125,32 +126,73 @@ $countries_json = file_get_contents(__DIR__ . '/../../assets/data/countries.json
         const searchInput = document.getElementById('country-search');
         const countBadge = document.getElementById('country-count');
 
+        // Helper to highlight list items
+        function highlightListItem(code) {
+            // Remove previous highlights
+            document.querySelectorAll('#country-list > div').forEach(el => {
+                el.classList.remove('bg-accent-50', 'border-accent-200');
+                el.classList.add('border-transparent');
+            });
+
+            // Highlight specific item
+            const item = document.getElementById(`list-item-${code}`);
+            if (item) {
+                item.classList.remove('border-transparent');
+                item.classList.add('bg-accent-50', 'border-accent-200');
+                item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function unhighlightListItem() {
+            document.querySelectorAll('#country-list > div').forEach(el => {
+                el.classList.remove('bg-accent-50', 'border-accent-200');
+                el.classList.add('border-transparent');
+            });
+        }
+
         // Initialize Map
+        // Using a distinct hover color for active countries to ensure visibility
         const map = new Datamap({
             element: container,
             projection: 'mercator',
             responsive: true,
             fills: {
-                defaultFill: "#f8fafc", // slate-50
-                active: "#f97316", // orange-500
-                hover: "#ea580c"  // orange-600
+                defaultFill: "#f8fafc", // slate-50 (Inactive)
+                active: "#f97316",      // orange-500 (Active)
+                hover: "#c2410c"        // orange-700 (Active Hover - Darker for contrast)
             },
             data: countriesData.reduce((acc, curr) => {
-                acc[curr.code] = { fillKey: 'active', city: curr.city };
+                acc[curr.code] = {
+                    fillKey: 'active',
+                    city: curr.city,
+                    // Specific highlight override for active data
+                    highlightFillColor: '#c2410c',
+                    highlightBorderColor: '#ffffff',
+                    highlightBorderWidth: 2
+                };
                 return acc;
             }, {}),
             geographyConfig: {
                 borderWidth: 0.8,
                 borderColor: '#e2e8f0', // slate-200
-                highlightFillColor: '#ea580c',
-                highlightBorderColor: '#fff',
-                highlightBorderWidth: 1.5,
+                // Global highlight settings (effectively disables hover for non-data countries)
+                highlightFillColor: '#f8fafc',
+                highlightBorderColor: '#e2e8f0',
+                highlightBorderWidth: 0.8,
+
+                popupOnHover: true, // Ensure this is true
+                highlightOnHover: true,
+
                 popupTemplate: function (geo, data) {
-                    const cityInfo = data && data.city ? `<div class="text-[10px] text-accent-400 mt-1 uppercase tracking-widest font-bold">Primary Site: ${data.city}</div>` : '';
-                    return `<div class="min-w-[120px]">
-                        <div class="font-bold text-sm tracking-tight">${geo.properties.name}</div>
-                        ${cityInfo}
-                    </div>`;
+                    // Strictly check if data exists (meaning it's one of our 34 countries)
+                    if (!data) return null;
+
+                    const cityDisplay = data.city || 'National Level';
+
+                    return '<div class="hover-popup">' +
+                        '<div class="popup-country">' + geo.properties.name + '</div>' +
+                        '<div class="popup-city">Primary Site: ' + cityDisplay + '</div>' +
+                        '</div>';
                 }
             }
         });
@@ -170,6 +212,7 @@ $countries_json = file_get_contents(__DIR__ . '/../../assets/data/countries.json
 
             data.forEach((country, index) => {
                 const item = document.createElement('div');
+                item.id = `list-item-${country.code}`;
                 item.className = "flex items-center justify-between p-3.5 rounded-xl cursor-pointer transition-all duration-300 hover:bg-white hover:shadow-md border border-transparent hover:border-slate-100 group list-item-animate";
                 item.style.animationDelay = `${index * 0.02}s`;
 
@@ -183,15 +226,17 @@ $countries_json = file_get_contents(__DIR__ . '/../../assets/data/countries.json
                     </div>
                 `;
 
+                // Add simple hover logic for map interaction from list
                 item.addEventListener('mouseenter', () => {
+                    // Programmatically trigger map highlight
                     const update = {};
-                    update[country.code] = '#ea580c';
+                    update[country.code] = '#c2410c'; // highlighting color
                     map.updateChoropleth(update);
                 });
 
                 item.addEventListener('mouseleave', () => {
                     const update = {};
-                    update[country.code] = '#f97316';
+                    update[country.code] = '#f97316'; // reset to active color
                     map.updateChoropleth(update);
                 });
 

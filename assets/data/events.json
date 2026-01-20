@@ -37,16 +37,6 @@
         "full_details": "The annual dissemination meeting concluded with significant insights into maternal health trends across northern India. Key stakeholders from MoHFW and ICMR attended the session. The report highlighted a 15% improvement in community-level health tracking through digital interventions.",
         "image": "assets/event_3.png",
         "tags": ["Research", "Dissemination", "Report"]
-    },
-    {
-        "id": "news-001",
-        "title": "INCLEN to Support Ministry of Health on New Digital Health Mission",
-        "type": "news",
-        "category": "Announcement",
-        "date": "Jan 12, 2026",
-        "short_details": "A landmark partnership to integrate local surveillance data into national health dashboards.",
-        "full_details": "INCLEN Trust International has been invited to provide technical expertise for the Ministry of Health and Family Welfare's new 'Digital Health Mission'. This partnership aims to leverage the SOMAARTH surveillance platform's datasets to provide real-time public health insights at the national level.",
-        "image": "assets/event_1.png",
-        "tags": ["Policy", "Partnership", "Digital"]
     }
+
 ]

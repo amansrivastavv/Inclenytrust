@@ -4,10 +4,13 @@ include 'components/head.php';
 include 'components/header.php';
 
 $events_json = file_get_contents('assets/data/events.json');
-$events = json_decode($events_json, true);
+$events = json_decode($events_json, true) ?? [];
+
+$news_json = file_get_contents('assets/data/news.json');
+$news_items = json_decode($news_json, true) ?? [];
 
 // Filter logic
-$news_items = array_filter($events, function ($e) { return $e['type'] === 'news'; });
+// $news_items is now loaded directly from news.json
 $upcoming_events = array_filter($events, function ($e) { return $e['type'] === 'upcoming'; });
 $past_events = array_filter($events, function ($e) { return $e['type'] === 'past'; });
 ?>
@@ -16,12 +19,12 @@ $past_events = array_filter($events, function ($e) { return $e['type'] === 'past
     <section class="relative bg-white pt-20 pb-24 md:pt-28 md:pb-40 overflow-hidden border-b border-slate-100">
         <!-- Brand Watermark & Background Elements -->
         <div class="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
-            <div class="absolute top-[-5%] md:top-[-10%] right-[-10%] w-[80%] md:w-[70%] h-[110%] md:h-[120%] opacity-[0.04] mix-blend-multiply">
+            <div class="absolute top-[-5%] md:top-[-10%] right-[-10%] w-[80%] md:w-[70%] h-[110%] md:h-[120%] opacity-[0.02] mix-blend-multiply">
                 <img src="assets/map_network.png" class="w-full h-full object-contain rotate-12">
             </div>
             <div class="absolute top-1/2 left-[-5%] w-[30rem] md:w-[40rem] h-[30rem] md:h-[40rem] bg-accent-500/5 rounded-full blur-[100px] md:blur-[120px] -translate-y-1/2"></div>
 
-            <div class="absolute -bottom-10 -left-10 text-[120px] md:text-[220px] font-serif font-black text-slate-100/40 whitespace-nowrap -rotate-3 leading-none tracking-tighter">
+            <div class="absolute -bottom-10 -left-10 text-[120px] md:text-[200px] font-serif font-black text-slate-200/40 whitespace-nowrap -rotate-3 leading-none tracking-tighter">
                 Global Network
             </div>
         </div>
@@ -162,7 +165,7 @@ $past_events = array_filter($events, function ($e) { return $e['type'] === 'past
                             
                             <div class="space-y-8 md:space-y-10">
                                 <?php foreach($news_items as $item): ?>
-                                    <a href="event-details.php?id=<?php echo $item['id']; ?>" class="block group/item">
+                                    <a href="event-details.php?slug=<?php echo $item['slug']; ?>" class="block group/item">
                                         <span class="text-[8px] md:text-[9px] font-bold text-white/40 uppercase tracking-widest block mb-2"><?php echo $item['date']; ?></span>
                                         <h4 class="text-lg md:text-xl font-serif font-bold text-white mb-3 md:mb-4 leading-tight group-hover/item:text-accent-500 transition-colors"><?php echo $item['title']; ?></h4>
                                         <p class="text-brand-100 text-xs md:text-sm font-light leading-relaxed line-clamp-2 opacity-60 mb-4"><?php echo $item['short_details']; ?></p>

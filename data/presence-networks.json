@@ -1,0 +1,32 @@
+[
+  {
+    "name": "IndiaCLEN (HQ)",
+    "lat": 28.6139,
+    "lng": 77.2090
+  },
+  {
+    "name": "INCLEN Africa",
+    "lat": 9.145,
+    "lng": 40.52
+  },
+  {
+    "name": "LATINCLEN",
+    "lat": -15.793889,
+    "lng": -47.882778
+  },
+  {
+    "name": "SEA-CLEN",
+    "lat": 13.7563,
+    "lng": 100.5018
+  },
+  {
+    "name": "ChinaCLEN",
+    "lat": 39.9042,
+    "lng": 116.4074
+  },
+  {
+    "name": "North America",
+    "lat": 45.4215,
+    "lng": -75.6972
+  }
+]

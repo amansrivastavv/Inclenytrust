@@ -83,16 +83,21 @@
                         class="text-sm font-semibold text-gray-700 hover:text-brand-600 transition-colors py-2">Home</a>
                 </div>
                 <div class="relative group h-full flex items-center px-3">
-                    <a href="#about"
+                    <a href="about.php"
                         class="text-sm font-semibold text-gray-700 hover:text-brand-600 transition-colors py-2">About</a>
                 </div>
+
                 <div class="relative group h-full flex items-center px-3">
                     <a href="#research"
                         class="text-sm font-semibold text-gray-700 hover:text-brand-600 transition-colors py-2">Research</a>
                 </div>
                 <div class="relative group h-full flex items-center px-3">
-                    <a href="#publications"
+                    <a href="publications.php"
                         class="text-sm font-semibold text-gray-700 hover:text-brand-600 transition-colors py-2">Publications</a>
+                </div>
+                <div class="relative group h-full flex items-center px-3">
+                    <a href="careers.php"
+                        class="text-sm font-semibold text-gray-700 hover:text-brand-600 transition-colors py-2">Careers</a>
                 </div>
                 <div class="relative group h-full flex items-center px-3">
                     <a href="events.php"
@@ -122,12 +127,14 @@
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a href="index.php"
                 class="block px-3 py-2 rounded-md text-base font-semibold text-gray-700 hover:text-brand-600 hover:bg-gray-50">Home</a>
-            <a href="#about"
+            <a href="about.php"
                 class="block px-3 py-2 rounded-md text-base font-semibold text-gray-700 hover:text-brand-600 hover:bg-gray-50">About</a>
             <a href="#research"
                 class="block px-3 py-2 rounded-md text-base font-semibold text-gray-700 hover:text-brand-600 hover:bg-gray-50">Research</a>
-            <a href="#publications"
+            <a href="publications.php"
                 class="block px-3 py-2 rounded-md text-base font-semibold text-gray-700 hover:text-brand-600 hover:bg-gray-50">Publications</a>
+            <a href="careers.php"
+                class="block px-3 py-2 rounded-md text-base font-semibold text-gray-700 hover:text-brand-600 hover:bg-gray-50">Careers</a>
             <a href="events.php"
                 class="block px-3 py-2 rounded-md text-base font-semibold text-gray-700 hover:text-brand-600 hover:bg-gray-50">News
                 & Event</a>

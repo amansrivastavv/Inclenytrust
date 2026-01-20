@@ -1,15 +1,33 @@
 <?php
-$events_json = file_get_contents('assets/data/events.json');
-$events = json_decode($events_json, true);
+$events = json_decode(file_get_contents('assets/data/events.json'), true);
+$news = json_decode(file_get_contents('assets/data/news.json'), true);
 
 $event_id = $_GET['id'] ?? null;
+$slug = $_GET['slug'] ?? null;
 $event = null;
 
-if ($event_id) {
+if ($slug) {
+    foreach ($news as $n) {
+        if (isset($n['slug']) && $n['slug'] === $slug) {
+            $event = $n;
+            break;
+        }
+    }
+} elseif ($event_id) {
+    // Check events first
     foreach ($events as $e) {
         if ($e['id'] === $event_id) {
             $event = $e;
             break;
+        }
+    }
+    // If not found in events, check news (fallback if someone uses id for news)
+    if (!$event) {
+        foreach ($news as $n) {
+            if ($n['id'] === $event_id) {
+                $event = $n;
+                break;
+            }
         }
     }
 }
@@ -51,10 +69,10 @@ include 'components/header.php';
                                 class="px-4 py-1.5 bg-brand-900 text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full shadow-xl shadow-brand-900/10">
                                 <?php echo $event['type']; ?>
                             </span>
-                            <span
+                            <!-- <span
                                 class="px-4 py-1.5 bg-white border border-slate-200 text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">
                                 ID: <?php echo $event['id']; ?>
-                            </span>
+                            </span> -->
                         </div>
                         <h1
                             class="text-5xl md:text-7xl font-serif font-bold text-slate-900 leading-[1.1] tracking-tight mb-8">
@@ -116,7 +134,7 @@ include 'components/header.php';
                         <div class="bg-white rounded-[40px] p-10 border border-slate-100 shadow-xl shadow-slate-200/50">
                             <h5
                                 class="text-[11px] font-bold uppercase tracking-[0.3em] text-accent-500 mb-8 pb-4 border-b border-slate-50">
-                                Logistics & Context</h5>
+                                Event Date</h5>
 
                             <div class="space-y-10">
                                 <div class="flex items-start gap-4">
@@ -135,25 +153,27 @@ include 'components/header.php';
                                     </div>
                                 </div>
 
-                                <div class="flex items-start gap-4">
-                                    <div
-                                        class="w-12 h-12 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-900">
-                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                                            </path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        </svg>
+                                <?php if (!empty($event['venue'])): ?>
+                                    <div class="flex items-start gap-4">
+                                        <div
+                                            class="w-12 h-12 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-900">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                                </path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">
+                                                Venue / Hub</p>
+                                            <p class="text-slate-900 font-bold"><?php echo $event['venue']; ?></p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">
-                                            Venue / Hub</p>
-                                        <p class="text-slate-900 font-bold"><?php echo $event['venue']; ?></p>
-                                    </div>
-                                </div>
+                                <?php endif; ?>
 
-                                <div class="flex items-start gap-4">
+                                <!-- <div class="flex items-start gap-4">
                                     <div
                                         class="w-12 h-12 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-900">
                                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -168,7 +188,7 @@ include 'components/header.php';
                                                 class="px-3 py-1 bg-slate-100 text-slate-600 text-[9px] font-bold uppercase tracking-widest rounded-full"><?php echo $tag; ?></span>
                                         <?php endforeach; ?>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <button onclick="window.print()"

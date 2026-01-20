@@ -54,7 +54,7 @@
                     </p>
                 </div>
                 <div class="pt-4 border-t border-white/5 mt-auto">
-                    <p class="text-xs font-bold uppercase tracking-widest text-accent-400">390,000+ Population</p>
+                    <p class="text-xs font-bold uppercase tracking-widest text-accent-500">390,000+ Population</p>
                 </div>
             </div>
 
@@ -72,7 +72,7 @@
                     </p>
                 </div>
                 <div class="pt-4 border-t border-white/5 mt-auto">
-                    <p class="text-xs font-bold uppercase tracking-widest text-accent-400">Strategic Think-Tank</p>
+                    <p class="text-xs font-bold uppercase tracking-widest text-accent-500">Strategic Think-Tank</p>
                 </div>
             </div>
 

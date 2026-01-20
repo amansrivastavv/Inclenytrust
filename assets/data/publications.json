@@ -1,0 +1,83 @@
+[
+    {
+        "id": "pub-001",
+        "slug": "introduction-to-qualitative-and-mixed-methods-study-designs",
+        "title": "An Introduction to Qualitative and Mixed Methods Study Designs in Health Research",
+        "authors": [
+            "Manoja Kumar Das"
+        ],
+        "date": "2022-05-15",
+        "journal": "Indian Pediatrics",
+        "abstract": "With the recognition of different population behavior and relevance of socio-cultural factors in health, there is growing interest and use of qualitative research in health. In the backdrop of continued dominance of quantitative research, there remains ambiguity among many researchers and practitioners regarding the role, design, conduct and appraisal of qualitative research. Application of qualitative and mixed-method study designs helps in exploring the depth of issues, finding the 'how' and 'why' of observations, and identifying local solutions for implementation.",
+        "pdf_url": "https://www.indianpediatrics.net/may2022/416.pdf",
+        "thumbnail": "assets/publication/health.jpg",
+        "citation": "Das, M.K. (2022). An Introduction to Qualitative and Mixed Methods Study Designs in Health Research. Indian Pediatr, 59(5):416-423."
+    },
+    {
+        "id": "pub-002",
+        "slug": "multicenter-studies-relevance-design-and-implementation",
+        "title": "Multicenter Studies: Relevance, Design and Implementation",
+        "authors": [
+            "Manoja Kumar Das"
+        ],
+        "date": "2022-07-15",
+        "journal": "Indian Pediatrics",
+        "abstract": "Multicenter studies are essential in clinical and public health research with several advantages like larger sample size, generalizability of findings, and networking. However, they are complex to design and implement, requiring careful planning and coordination among the participating sites. This article discusses the relevance, types, design, and implementation aspects of multicenter studies, including the role of the coordinating center, site selection, quality assurance, and ethical considerations.",
+        "pdf_url": "https://www.indianpediatrics.net/july2022/571.pdf",
+        "thumbnail": "assets/publication/multicenter.jpg",
+        "citation": "Das, M.K. (2022). Multicenter Studies: Relevance, Design and Implementation. Indian Pediatr, 59(7):571-579."
+    },
+    {
+        "id": "pub-003",
+        "slug": "ambient-weather-risk-factor-acute-encephalopathy-muzaffarpur",
+        "title": "Is Ambient Weather a Risk Factor for Acute Encephalopathy Outbreaks in Children in Muzaffarpur, Bihar, India? Insight from a 9-Year Analysis",
+        "authors": [
+            "Arun K Singh",
+            "Sunil Kumar Shahi",
+            "Bhartendu Kumar",
+            "Manoja Kumar Das"
+        ],
+        "date": "2022-01-07",
+        "journal": "Journal of Tropical Pediatrics",
+        "abstract": "Despite periodic outbreaks, the causes and risk factors of acute encephalitis syndrome (AES) in children of Muzaffarpur, Bihar, India, remain unknown. We explored the correlation between AES caseload and the climate parameters. AES cases showed a seasonal pattern, peaking in June. High temperature and humidity were positively correlated with AES caseload, suggesting they are significant risk factors for AES outbreaks in Muzaffarpur.",
+        "pdf_url": "https://academic.oup.com/tropej/article-pdf/68/1/fmab111/42152206/fmab111.pdf",
+        "thumbnail": "assets/publication/weather.jpg",
+        "citation": "Singh, A.K., Shahi, S.K., Kumar, B., Das, M.K. (2022). Is Ambient Weather a Risk Factor for Acute Encephalopathy Outbreaks in Children? J Trop Pediatr, 68(1):fmab111."
+    },
+    {
+        "id": "pub-004",
+        "slug": "longer-quarantine-period-covid-19-odisha",
+        "title": "A Longer Quarantine Period May Be Needed for Effective Control of COVID-19 Transmission: Experience From Odisha, India",
+        "authors": [
+            "Manoja K Das",
+            "Subham R Nayak",
+            "Ashoka Mahapatra",
+            "Kishore K Behera",
+            "Vinay Kumar Hallur"
+        ],
+        "date": "2022-05-14",
+        "journal": "Cureus",
+        "abstract": "Background: The novel coronavirus disease (COVID-19) has become pandemic. For effective disease control, quarantine of the infected and exposed cases for an optimal period is critical. This study aimed to analyze the incubation period and the duration of viral shedding to determine the appropriate quarantine period. The study found that a significant proportion of cases had an incubation period longer than 14 days, suggesting a 21-day quarantine might be necessary.",
+        "pdf_url": "https://doi.org/10.7759/cureus.24999",
+        "thumbnail": "assets/publication/quaruntine.jpg",
+        "citation": "Das, M.K., Nayak, S.R., Mahapatra, A., et al. (2022). A Longer Quarantine Period May Be Needed for Effective Control of COVID-19 Transmission. Cureus, 14(5):e24999."
+    },
+    {
+        "id": "pub-005",
+        "slug": "development-india-covid-19-vaccine-tracker",
+        "title": "Development of the India COVID-19 vaccine tracker",
+        "authors": [
+            "Harpreet Singh",
+            "Rohan Lohia",
+            "Leyanna Susan George",
+            "Nivedita Gupta",
+            "Manoja Kumar Das"
+        ],
+        "date": "2022-05-01",
+        "journal": "Indian Journal of Medical Research",
+        "abstract": "To monitor real-world effectiveness of COVID-19 vaccines, the Indian Council of Medical Research developed the India COVID-19 Vaccination Tracker by synergizing three different public health databases. The tracker depicts vaccine effectiveness against mortality, calculated by a cohort approach using person-time analysis. The high vaccine effectiveness against mortality helped in allaying vaccine hesitancy and maintaining the momentum of India’s vaccination drive.",
+        "pdf_url": "https://journals.lww.com/ijmr/Fulltext/2022/15505/Development_of_the_India_COVID_19_vaccine_tracker.13.aspx",
+        "thumbnail": "assets/publication/covid-19.jpg",
+        "citation": "Singh, H., Lohia, R., George, L.S., et al. (2022). Development of the India COVID-19 vaccine tracker. Indian J Med Res, 155(5&6):513-517."
+    }
+]

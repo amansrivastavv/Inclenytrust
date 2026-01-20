@@ -1,0 +1,22 @@
+[
+    {
+        "id": "1",
+        "slug": "assistant-data-manager-palwal",
+        "title": "Assistant Data Manager",
+        "location": "Palwal, Haryana",
+        "type": "Full Time",
+        "department": "Data Management",
+        "posted_date": "2026-01-10",
+        "pdf_url": "assets/data/careerjd/Assistant-Data-manager_Palwal.pdf"
+    },
+    {
+        "id": "2",
+        "slug": "research-assistant-census-palwal",
+        "title": "Research Assistant Census",
+        "location": "Palwal, Haryana",
+        "type": "Contractual",
+        "department": "Research",
+        "posted_date": "2026-01-12",
+        "pdf_url": "assets/data/careerjd/research-assistant-census-palwal.pdf"
+    }
+]
